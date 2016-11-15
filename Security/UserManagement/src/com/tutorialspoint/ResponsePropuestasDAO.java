@@ -241,7 +241,7 @@ public class ResponsePropuestasDAO {
     	ResultSet resultSetOriginal=null;
     	try {
             Class.forName("com.mysql.jdbc.Driver");
-             conPropuestaOriginal = DriverManager.getConnection("jdbc:mysql://localhost/cct_db?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&user=root&password=admin");
+             conPropuestaOriginal = DriverManager.getConnection("jdbc:mysql://localhost/cct_db?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false&user=root&password=admin");
              String campos="propuesta_cliente_id, cliente_id, propuesta_socio_id, fecha_creacion_propuesta, fecha_presentacion_propuesta, estado_propuesta, proyecto_id, viable_tecnicamente, viable_financieramente, fecha_aceptacion, valor_total";
 
              PreparedStatement preparedStatementOriginal = conPropuestaOriginal.prepareStatement("SELECT " + campos + " FROM propuesta_cliente");
@@ -259,7 +259,7 @@ public class ResponsePropuestasDAO {
     	ResultSet resultSetCopia=null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            conPropuestaCopia = DriverManager.getConnection("jdbc:mysql://localhost/cct_db_segura?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&user=root&password=admin");
+            conPropuestaCopia = DriverManager.getConnection("jdbc:mysql://localhost/cct_db_segura?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false&user=root&password=admin");
 
             String campos="propuesta_cliente_id, cliente_id, propuesta_socio_id, fecha_creacion_propuesta, fecha_presentacion_propuesta, estado_propuesta, proyecto_id, viable_tecnicamente, viable_financieramente, fecha_aceptacion, valor_total";
 
