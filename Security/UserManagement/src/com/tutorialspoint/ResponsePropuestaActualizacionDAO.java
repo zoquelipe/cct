@@ -91,7 +91,7 @@ public class ResponsePropuestaActualizacionDAO {
 					valorTotal);
 			
 		} catch (ClassNotFoundException | SQLException e) {
-			resultList.add(new Response("EDB001", "Problemas con la base de datos"));
+			resultList.add(new Response("EDB001", "Problemas con la base de datos [A1]"));
 			return resultList;
 		}
 			

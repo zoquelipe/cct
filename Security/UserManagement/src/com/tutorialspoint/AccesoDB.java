@@ -23,7 +23,7 @@ public class AccesoDB {
 
 		// Setup the connection with the DB
 		String password = "admin";
-		String stringConnection = "jdbc:mysql://localhost/cct_db?useSSL=true"
+		String stringConnection = "jdbc:mysql://localhost/cct_db?useSSL=false"
 		        + "&user=" + usuario
 				+ "&password=" + password;
 		

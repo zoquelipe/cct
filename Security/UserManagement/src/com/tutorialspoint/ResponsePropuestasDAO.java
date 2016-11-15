@@ -36,7 +36,7 @@ public class ResponsePropuestasDAO {
 			}
 		} catch (SQLException e1) {
 			List<Propuesta> resultError = new ArrayList<Propuesta>();
-			resultError.add(new Propuesta("EDB001", "Problemas con la base de datos"));
+			resultError.add(new Propuesta("EDB001", "Problemas con la base de datos [1]"));
 			return resultError;
 		}
 		
@@ -55,7 +55,7 @@ public class ResponsePropuestasDAO {
 			} catch (ClassNotFoundException | SQLException e) {
 
 				List<Propuesta> resultError = new ArrayList<Propuesta>();
-				resultError.add(new Propuesta("EDB001", "Problemas con la base de datos"));
+				resultError.add(new Propuesta("EDB001", "Problemas con la base de datos [2]"));
 				return resultError;
 
 			} finally {
@@ -90,7 +90,7 @@ public class ResponsePropuestasDAO {
 			} catch (ClassNotFoundException | SQLException e) {
 
 				List<Propuesta> resultError = new ArrayList<Propuesta>();
-				resultError.add(new Propuesta("EDB001", "Problemas con la base de datos"));
+				resultError.add(new Propuesta("EDB001", "Problemas con la base de datos [3]"));
 				return resultError;
 			} finally {
 				cerrarConexion();
@@ -154,7 +154,7 @@ public class ResponsePropuestasDAO {
 
 	private void abrirConexion(String usuario) throws ClassNotFoundException, SQLException {
 		String password = "admin";
-		String stringConnection = "jdbc:mysql://localhost/cct_db?useSSL=true" + "&user=" + usuario + "&password="
+		String stringConnection = "jdbc:mysql://localhost/cct_db?useSSL=false" + "&user=" + usuario + "&password="
 				+ password;
 
 		Class.forName("com.mysql.jdbc.Driver");
@@ -242,7 +242,7 @@ public class ResponsePropuestasDAO {
     	try {
             Class.forName("com.mysql.jdbc.Driver");
              conPropuestaOriginal = DriverManager.getConnection("jdbc:mysql://localhost/cct_db?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&user=root&password=admin");
-             String campos="propuesta_cliente_id, cliente_id, propuesta_socio_id, fecha_creacion_propuesta, fecha_presentacion_propuesta, estado_propuesta, proyecto_id, viable_tecnicamente, viable_financieramente, fecha_aceptacion, propuesta_clientecol";
+             String campos="propuesta_cliente_id, cliente_id, propuesta_socio_id, fecha_creacion_propuesta, fecha_presentacion_propuesta, estado_propuesta, proyecto_id, viable_tecnicamente, viable_financieramente, fecha_aceptacion, valor_total";
 
              PreparedStatement preparedStatementOriginal = conPropuestaOriginal.prepareStatement("SELECT " + campos + " FROM propuesta_cliente");
              resultSetOriginal = preparedStatementOriginal.executeQuery();
@@ -261,7 +261,7 @@ public class ResponsePropuestasDAO {
             Class.forName("com.mysql.jdbc.Driver");
             conPropuestaCopia = DriverManager.getConnection("jdbc:mysql://localhost/cct_db_segura?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&user=root&password=admin");
 
-            String campos="propuesta_cliente_id, cliente_id, propuesta_socio_id, fecha_creacion_propuesta, fecha_presentacion_propuesta, estado_propuesta, proyecto_id, viable_tecnicamente, viable_financieramente, fecha_aceptacion, propuesta_clientecol";
+            String campos="propuesta_cliente_id, cliente_id, propuesta_socio_id, fecha_creacion_propuesta, fecha_presentacion_propuesta, estado_propuesta, proyecto_id, viable_tecnicamente, viable_financieramente, fecha_aceptacion, valor_total";
 
             PreparedStatement preparedStatementOriginal = conPropuestaOriginal.prepareStatement("SELECT " + campos + " FROM propuesta_cliente");
             resultSetCopia = preparedStatementOriginal.executeQuery();
